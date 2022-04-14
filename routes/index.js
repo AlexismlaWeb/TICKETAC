@@ -21,9 +21,10 @@ router.get('/tickets', function(req,res,next){
   res.render('tickets',{userSess : req.session.user});
 });
 
-router.get('/trips-list', async function(req,res,next){
-  
-  res.render('trips',{userSess : req.session.user});
+router.post('/trips-list', async function(req,res,next){
+  var list = await journeyModel.find({departure : req.body.departure,arrival : req.body.arrival, date : req.body.date})
+  console.log(list)
+  res.render('trips',{userSess : req.session.user, list});
 });
 
 module.exports = router;
