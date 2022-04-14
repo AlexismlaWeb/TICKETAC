@@ -14,6 +14,11 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.post('/trips-list', function(req,res,next){
+  res.render('trip');
+});
+
+
 // // Remplissage de la base de donnée, une fois suffit
 // router.get('/save', async function(req, res, next) {
 
