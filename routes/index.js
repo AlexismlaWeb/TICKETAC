@@ -48,13 +48,25 @@ router.get('/tickets', function(req,res,next){
 });
 
 router.post('/trips-list', async function(req,res,next){
-  if(req.body.departure && req.body.arrival && req.body.date){
   var list = await journeyModel.find({departure : req.body.departure,arrival : req.body.arrival, date : req.body.date})
+
+  if(req.body.departure && req.body.arrival && req.body.date){
+    var list = await journeyModel.find({departure : req.body.departure,arrival : req.body.arrival, date : req.body.date})
+    if(list.length != 0){
+      res.render('trips',{userSess : req.session.user, list});
+    }else{
+      res.redirect('/erreur')
+    }
   }else{
     res.redirect('/home')
   }
-  console.log(list)
-  res.render('trips',{userSess : req.session.user, list});
+
+  console.log(list.length)
+});
+
+router.get('/erreur', function(req, res, next) {
+  console.log(req.session.user)
+  res.render('erreur',{ userSess : req.session.user});
 });
 
 module.exports = router;
