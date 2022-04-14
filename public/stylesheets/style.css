@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: rgb(248,249,250);
   background: linear-gradient(180deg, rgb(214, 234, 255) 12%, rgb(135, 181, 203) 50%, rgb(78, 153, 197) 100%);
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 a {
@@ -27,12 +27,23 @@ a {
 
 .home {
   color: #FFFFFF;
-  padding-top: 20px;
-  padding-bottom: 20px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.list {
+  color: #FFFFFF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.total{
+  background-color: lightcoral;
 }
 
 .footer{
