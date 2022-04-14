@@ -9,9 +9,31 @@
 
 <body>
     <%- include('header')%>
-    <div class="home">
-        <div class="row">
-
+    <div class="list">
+        <div class="row col-6">   
+            <div class="mt-5 mb-5 text-white"><h3>Tickets available on 02/08 :</h3></div> 
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center mb-3 p-3">
+                    <span class="pop">Paris/Lille</span>
+                    <div>
+                     <span>departure at : 15:00 pm</span>
+                    </div>
+                    <div>
+                        <span class="me-3">93€</span>
+                        <button type="submit" class="btn btn-danger me-3">OK</button>
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <span class="pop">Paris/Lille</span>
+                    <div>
+                     <span>departure at : 15:00 pm</span>
+                    </div>
+                    <div>
+                        <span class="me-3">93€</span>
+                        <button type="submit" class="btn btn-danger me-3">OK</button>
+                    </div>
+                  </li>
+              </ul>
     </div>
     </div>
     <%-include('footer')%>

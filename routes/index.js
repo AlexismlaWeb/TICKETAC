@@ -18,7 +18,7 @@ router.get('/home', function(req, res, next) {
 });
 
 
-router.post('/trips-list', function(req,res,next){
+router.get('/trips-list', function(req,res,next){
 
   res.render('trips');
 });
