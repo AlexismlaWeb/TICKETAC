@@ -22,7 +22,15 @@ router.get('/home', function(req, res, next) {
 
 router.get('/tickets', function(req,res,next){
   console.log(req.session.dataCardTickets)
-    
+  var alreadyExist = false;
+
+  for(var i = 0; i< req.session.dataCardTickets.length; i++){
+    if(req.session.dataCardTickets[i].date == req.query.date && req.session.dataCardTickets[i].departure == req.query.departure && req.session.dataCardTickets[i].arrival == req.query.arrival){
+      alreadyExist = true;
+    }
+  }
+
+  if(alreadyExist != true){
   req.session.dataCardTickets.push(
       {
       departure: req.query.departure,
@@ -31,6 +39,7 @@ router.get('/tickets', function(req,res,next){
       departureTime :req.query.departureTime,
       price: req.query.price,
     })
+    }
     console.log(req.session.dataCardTickets)
 
  
@@ -39,7 +48,11 @@ router.get('/tickets', function(req,res,next){
 });
 
 router.post('/trips-list', async function(req,res,next){
+  if(req.body.departure && req.body.arrival && req.body.date){
   var list = await journeyModel.find({departure : req.body.departure,arrival : req.body.arrival, date : req.body.date})
+  }else{
+    res.redirect('/home')
+  }
   console.log(list)
   res.render('trips',{userSess : req.session.user, list});
 });
