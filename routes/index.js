@@ -21,6 +21,8 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/tickets', function(req,res,next){
+  console.log(req.query.date)
+  console.log(req.query.departure)
 
     req.session.dataCardTickets.push({
       departure: req.query.departure,
