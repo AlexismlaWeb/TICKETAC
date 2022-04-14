@@ -17,7 +17,8 @@ router.post('/sign-up', async function(req,res,next){
   
   if(!searchUser){
     var newUser = new userModel({
-      username: req.body.usernameFromFront,
+      name: req.body.nameFromFront,
+      firstname: req.body.firstNameFromFront,
       email: req.body.emailFromFront,
       password: req.body.passwordFromFront,
     })
