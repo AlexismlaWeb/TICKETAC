@@ -8,10 +8,24 @@
   <body>
     <%- include('header')%>
       <div class="container-fluid">
-          <div class="row">
-          </div>
-
+     
+            <div class="r ">
+                <div class="row col-6">
+                    <div class="mb-3 text-white">One-way ticket:</div> 
+                    <div class="form-group mb-3 d-flex offset-1">
+                    <input type="string" class="form-control me-3" placeholder="From: Paris, Marseille..." aria-describedby="emailHelp">
+                    <input type="string" class="form-control me-3" placeholder="To: Lille, Lyon...">
+                    <input type="date" class="form-control me-3" placeholder="">
+                    <button type="submit" class="btn btn-danger ms-4">Go</button>
+                </div>
+                <div class="mt-5 offset-3">
+                    <img class="img-land" src="images/landmark.png" alt="landmark">
+                </div>
+                </div>
+                
+            </div>
+        
       </div>
-
+      <%-include('footer')%>
   </body>
 </html>
