@@ -1,10 +1,9 @@
 
 body {
-  min-height: 100vh;
-
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: rgb(248,249,250);
-  background: linear-gradient(180deg, rgb(199, 218, 237) 12%, rgb(133, 165, 181) 56%, rgb(97, 155, 188) 100%);
+  background: linear-gradient(180deg, rgb(214, 234, 255) 12%, rgb(135, 181, 203) 50%, rgb(78, 153, 197) 100%);
+  min-height: 100vh;
 }
 
 a {
@@ -31,6 +30,12 @@ a {
   padding-top: 20px;
   padding-bottom: 20px;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer{
   display: flex;
   align-items: center;
   justify-content: center;
