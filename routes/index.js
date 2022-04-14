@@ -17,6 +17,10 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'Express' });
 });
 
+router.get('/tickets', function(req,res,next){
+
+  res.render('tickets');
+});
 
 router.get('/trips-list', function(req,res,next){
 
