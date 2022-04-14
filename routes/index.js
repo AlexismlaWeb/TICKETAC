@@ -9,6 +9,10 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if(req.session.dataCardTickets == undefined){
+    req.session.dataCardTickets = []
+  }
+  
   res.render('login',{ userSess : req.session.user});
 });
 
@@ -18,7 +22,18 @@ router.get('/home', function(req, res, next) {
 
 router.get('/tickets', function(req,res,next){
 
-  res.render('tickets',{userSess : req.session.user});
+    req.session.dataCardTickets.push({
+      departure: req.query.departure,
+      arrival: req.query.arrival,
+      date : req.query.date,
+      departureTime :req.query.departureTime,
+      price: req.query.price,
+  })
+
+
+  console.log(dataCardTickets)
+
+  res.render('tickets',{userSess : req.session.user,dataCardTickets : req.session.dataCardTickets});
 });
 
 router.post('/trips-list', async function(req,res,next){
