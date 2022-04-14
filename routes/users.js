@@ -5,7 +5,8 @@ var userModel = require('../models/users')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  console.log(req.session.user)
+  res.send('/',{ userSess : req.session.user});
 });
 
 
@@ -42,8 +43,6 @@ router.post('/sign-up', async function(req,res,next){
 router.post('/sign-in', async function(req,res,next){
 
   var searchUser = await userModel.findOne({
-    name: req.body.nameFromFront,
-    firstname: req.body.firstNameFromFront,
     email: req.body.emailFromFront,
     password: req.body.passwordFromFront
   })
@@ -55,7 +54,14 @@ router.post('/sign-in', async function(req,res,next){
     }
     res.redirect('/home')
   } else {
-    res.render('/')
+    res.redirect('/')
   }  
+});
+
+router.get('/logout', function(req,res,next){
+
+  req.session.user = null;
+
+  res.redirect('/')
 });
 module.exports = router;
