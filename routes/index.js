@@ -75,9 +75,9 @@ router.get('/confirm', async function(req, res, next) {
   var dataCardsTickets = req.session.dataCardTickets;
   var userSess = req.session.user;
   var foundUser = await userModel.findOne({_id: userSess.id});
-  console.log(foundUser)
 
   for(var i = 0; i< dataCardsTickets.length; i++){
+    
     foundUser.last_trips.push({
                     departure: dataCardsTickets[i].departure,
                     arrival: dataCardsTickets[i].arrival,
@@ -86,16 +86,20 @@ router.get('/confirm', async function(req, res, next) {
                     price: dataCardsTickets[i].price})
     await foundUser.save();
   }
-
-  console.log(foundUser)
 });
 
 router.get('/mylast-trip', async function(req,res){
+if(req.session.user != undefined){
+
   var dataCardsTickets = req.session.dataCardTickets;
   var userSess = req.session.user;
   var foundUser = await userModel.findOne({_id: userSess.id});
-  console.log(foundUser)
+
   res.render('lastTrips',{foundUser ,userSess,dataCardsTickets})
+}else{
+  res.redirect('/')
+}
+
 })
 
 router.post('/trips-list', async function(req,res,next){
