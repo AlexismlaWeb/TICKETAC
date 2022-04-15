@@ -25,26 +25,17 @@
                 </thead>
                 <tbody>
                   
-                  <%  var total = 0; %>
-                  <%  for(i=0 ; i < dataCardsTickets.length ; i++) { %>
-                  <%  total +=  parseInt(dataCardsTickets[i].price) %>
-                  <%  var date = new Date(dataCardsTickets[i].date) %>
+                  <%  for(i=0 ; i < foundUser.last_trips.length ; i++) { %>
+                  <%  var date = new Date(foundUser.last_trips[i].date) %>
                   <tr>
+                    <td><%= foundUser.last_trips[i].departure %>/<%= foundUser.last_trips[i].arrival %></td>
                     <td><%= date.getDate() %>/<%= date.getMonth()+1 %>/<%= date.getFullYear() %></td>
-                    <td><%= dataCardsTickets[i].departureTime %></td>
-                    <td><%= dataCardsTickets[i].price %>€</td>
+                    <td><%= foundUser.last_trips[i].departureTime %></td>
+                    <td><%= foundUser.last_trips[i].price %>€</td>
                   </tr>
                   <% } %>
-                  <tr class="total">
-                    <th scope="row">Total</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><%= total %>€</td>
-                  </tr>
                 </tbody>
               </table>
-              <!-- Button trigger modal -->
               <a href="/home">
                   <button type="button" class="btn btn-danger col-2 offset-10">
                   Home

@@ -25,7 +25,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  
                   <%  var total = 0; %>
                   <%  for(i=0 ; i < dataCardsTickets.length ; i++) { %>
                   <%  total +=  parseInt(dataCardsTickets[i].price) %>
@@ -48,9 +47,9 @@
                 </tbody>
               </table>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-danger col-2 offset-10" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <a href="/confirm"><button type="button" class="btn btn-danger col-2 offset-10" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Confirm
-              </button>
+              </button></a>
 
               <!-- Modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
