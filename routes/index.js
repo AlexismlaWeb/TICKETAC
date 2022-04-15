@@ -29,7 +29,7 @@ router.get('/tickets', function(req,res,next){
     var alreadyExist = false;
   
     for(var i = 0; i< req.session.dataCardTickets.length; i++){
-      if(req.session.dataCardTickets[i].date == req.query.date && req.session.dataCardTickets[i].departure == req.query.departure && req.session.dataCardTickets[i].arrival == req.query.arrival){
+      if(req.session.dataCardTickets[i].date == req.query.date && req.session.dataCardTickets[i].departure == req.query.departure && req.session.dataCardTickets[i].arrival == req.query.arrival && req.session.dataCardTickets[i].price == req.query.price){
         alreadyExist = true;
       }
     }
@@ -45,9 +45,6 @@ router.get('/tickets', function(req,res,next){
       })
       }
       console.log(req.session.dataCardTickets)
-  
-   
-  
     res.render('tickets',{userSess : req.session.user,dataCardsTickets : req.session.dataCardTickets});
   }else{
     res.redirect('/')
@@ -72,7 +69,7 @@ router.post('/trips-list', async function(req,res,next){
   
     console.log(list.length)
   }else{
-    res.redirect('/:')
+    res.redirect('/')
   }
  
 });
