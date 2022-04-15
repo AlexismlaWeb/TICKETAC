@@ -61,6 +61,7 @@ router.post('/sign-in', async function(req,res,next){
 router.get('/logout', function(req,res,next){
 
   req.session.user = null;
+  req.session.dataCardTickets = null;
 
   res.redirect('/')
 });
